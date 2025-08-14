@@ -1,40 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Lief Clock-In Application
 
-## Getting Started
+A web and mobile-friendly application for healthcare organizations to manage and track staff shift timings.  
+Built with **Next.js**, **GraphQL**, **Prisma**, and **Auth0**, this MVP allows managers to set geofenced clock-in perimeters and care workers to easily clock in and clock out of their shifts.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Care Worker
+- **Clock In**
+  - Only available within the location perimeter set by the manager.
+  - Optional note on clock in.
+  - Prevents clock in if outside the perimeter.
+- **Clock Out**
+  - Only available if already clocked in.
+  - Optional note on clock out.
+- **Authentication**
+  - Register/login via **Auth0** (email & Google login supported).
+  - View personal clock-in/out history.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Manager
+- Set **location perimeter** (e.g., 2 km radius).
+- View table of currently clocked-in staff.
+- For each staff:
+  - See when and where they clocked in.
+  - See when and where they clocked out.
+- Dashboard analytics:
+  - Average hours spent clocked in per day.
+  - Number of people clocking in per day.
+  - Total hours clocked in per staff in the past week.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 📊 Dashboard & Analytics
+- Implemented using **Chart.js** for visualizing:
+  - Daily average hours.
+  - Daily clock-in counts.
+  - Weekly total hours per staff.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend**
+- Next.js
+- React Context API (for state management)
+- Grommet UI library (responsive & mobile-friendly)
+- Chart.js (analytics)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+**Backend**
+- GraphQL API
+- Prisma ORM
+- PostgreSQL database
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Authentication**
+- Auth0 (Google & Email login)
 
-## Deploy on Vercel
+**Other**
+- Geolocation API for perimeter checks
+- Responsive design for desktop & mobile
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## ⚡ Bonus Features Implemented
+- **PWA Support**
+  - Installable on devices.
+  - Works offline (limited features).
+- **Automatic Location Detection**
+  - Notifies care workers when entering or leaving the perimeter.
+
+---
+
+---
+
+## 📂 Project Structure
