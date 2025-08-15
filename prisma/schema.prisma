@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(CAREWORKER)
+  clockLogs ClockLog[]
+}
+
+model ClockLog {
+  id          String   @id @default(cuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  clockInAt   DateTime
+  clockInLoc  String
+  clockOutAt  DateTime?
+  clockOutLoc String?
+  noteIn      String?
+  noteOut     String?
+}
+
+model Location {
+  id        String   @id @default(cuid())
+  name      String
+  lat       Float
+  lng       Float
+  radiusKm  Float    // perimeter radius in kilometers
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  MANAGER
+  CAREWORKER
+  EMPLOYEE   // added
+}
