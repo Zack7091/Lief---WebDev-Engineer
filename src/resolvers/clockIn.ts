@@ -31,13 +31,15 @@ export const clockIn = async (
 
   const dist = haversineDistance(lat, lng, location.lat, location.lng);
   if (dist > location.radiusKm) {
-    throw new Error(`Outside perimeter (${dist} km). Allowed radius ${location.radiusKm} km.`);
+    throw new Error(
+      `Outside perimeter (${dist.toFixed(2)} km). Allowed radius ${location.radiusKm} km.`
+    );
   }
 
   return ctx.prisma.clockLog.create({
     data: {
       userId: user.id,
-      clockInAt: Date.now().toString(),
+      clockInAt: new Date().toISOString(),
       clockInLoc: location.name,
       noteIn
     },

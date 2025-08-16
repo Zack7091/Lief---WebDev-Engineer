@@ -1,0 +1,76 @@
+.dashboardContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboardHeader h1 {
+  font-size: 1.8rem;
+}
+
+.backBtn {
+  background: #033c57;
+  color: #93cee0;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.statCard {
+  background: #194e5c;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.statCard h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.statCard p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.tableSection {
+  margin-top: 30px;
+}
+
+.tableSection h2 {
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.table th, .table td {
+  border: 1px solid #1b488b;
+  padding: 8px;
+}
+
+.table th {
+  background: #0b5551;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+}

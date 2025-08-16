@@ -3,9 +3,10 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
+
 
 model User {
   id        String   @id @default(cuid())
@@ -32,7 +33,7 @@ model Location {
   name      String
   lat       Float
   lng       Float
-  radiusKm  Float    // perimeter radius in kilometers
+  radiusKm  Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -40,5 +41,5 @@ model Location {
 enum Role {
   MANAGER
   CAREWORKER
-  EMPLOYEE   // added
+  EMPLOYEE
 }
